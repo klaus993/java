@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class LinkedList {
 
     private Node first;
@@ -10,8 +12,8 @@ public class LinkedList {
         this.size = 0;
     }
 
-    public Object getFirst() {
-        return this.first;
+    public String getFirst() {
+        return this.first.getData();
     }
 
     public int getSize() {
@@ -22,7 +24,7 @@ public class LinkedList {
         return this.size == 0;
     }
 
-    public void push(Object item) {
+    public void push(String item) {
         Node newNode = new Node(item);
         if (this.isEmpty()) {
             this.last = newNode;
@@ -33,7 +35,7 @@ public class LinkedList {
         this.size++;
     }
 
-    public void pushLast(Object item) {
+    public void pushLast(String item) {
         Node newNode = new Node(item);
         if (this.isEmpty()) {
             this.first = newNode;
@@ -44,9 +46,9 @@ public class LinkedList {
         this.size++;
     }
 
-    public Object pop() {
+    public String pop() {
         Node temp = this.first;
-        Object data = temp.getData();
+        String data = temp.getData();
         this.first = this.first.getNext();
         if (this.isEmpty()) {
             this.last = null;
@@ -55,30 +57,3 @@ public class LinkedList {
     }
 }
 
-class Node<Object> {
-
-    private Object data;
-    private Node next;
-
-    public Node() {
-        this.data = null;
-        this.next = null;
-    }
-
-    public Node(Object data) {
-        this.data = data;
-        this.next = null;
-    }
-
-    public Object getData() {
-        return this.data;
-    }
-
-    public Node getNext() {
-        return this.next;
-    }
-
-    public void setNext(Node next) {
-        this.next = next;
-    }
-}
