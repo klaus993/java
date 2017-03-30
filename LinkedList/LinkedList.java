@@ -1,5 +1,3 @@
-package linkedlist;
-
 public class LinkedList {
 
     private Node first;
@@ -12,6 +10,10 @@ public class LinkedList {
         this.size = 0;
     }
 
+    public Object getFirst() {
+        return this.first;
+    }
+
     public int getSize() {
         return this.size;
     }
@@ -20,7 +22,7 @@ public class LinkedList {
         return this.size == 0;
     }
 
-    public void push(T item) {
+    public void push(Object item) {
         Node newNode = new Node(item);
         if (this.isEmpty()) {
             this.last = newNode;
@@ -28,17 +30,34 @@ public class LinkedList {
             newNode.setNext(this.first);
         }
         this.first = newNode;
+        this.size++;
     }
 
-    public void pushLast(T item) {
+    public void pushLast(Object item) {
         Node newNode = new Node(item);
-        
+        if (this.isEmpty()) {
+            this.first = newNode;
+        } else {
+            this.last.setNext(newNode);
+        }
+        this.last = newNode;
+        this.size++;
+    }
+
+    public Object pop() {
+        Node temp = this.first;
+        Object data = temp.getData();
+        this.first = this.first.getNext();
+        if (this.isEmpty()) {
+            this.last = null;
+        }
+        return data;
     }
 }
 
-class Node<T> {
+class Node<Object> {
 
-    private T data;
+    private Object data;
     private Node next;
 
     public Node() {
@@ -46,12 +65,12 @@ class Node<T> {
         this.next = null;
     }
 
-    public Node(T data) {
+    public Node(Object data) {
         this.data = data;
         this.next = null;
     }
 
-    public T getData() {
+    public Object getData() {
         return this.data;
     }
 
