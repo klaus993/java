@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class LinkedList {
+public class LinkedList<T> {
 
     private Node first;
     private Node last;
@@ -12,8 +12,12 @@ public class LinkedList {
         this.size = 0;
     }
 
-    public String getFirst() {
-        return this.first.getData();
+    public T getFirst() {
+        return (T) this.first.getData();
+    }
+
+    public T getLast() {
+        return (T) this.last.getData();
     }
 
     public int getSize() {
@@ -24,8 +28,8 @@ public class LinkedList {
         return this.size == 0;
     }
 
-    public void push(String item) {
-        Node newNode = new Node(item);
+    public void push(T item) {
+        Node newNode = new Node<T>(item);
         if (this.isEmpty()) {
             this.last = newNode;
         } else {
@@ -35,8 +39,8 @@ public class LinkedList {
         this.size++;
     }
 
-    public void pushLast(String item) {
-        Node newNode = new Node(item);
+    public void pushLast(T item) {
+        Node newNode = new Node<T>(item);
         if (this.isEmpty()) {
             this.first = newNode;
         } else {
@@ -46,9 +50,9 @@ public class LinkedList {
         this.size++;
     }
 
-    public String pop() {
+    public T pop() {
         Node temp = this.first;
-        String data = temp.getData();
+        T data = (T) temp.getData();
         this.first = this.first.getNext();
         if (this.isEmpty()) {
             this.last = null;

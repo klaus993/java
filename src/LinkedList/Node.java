@@ -1,16 +1,16 @@
 package LinkedList;
 
-public class Node {
+public class Node<T> {
 
-    private String data;
+    private T data;
     private Node next;
 
-    Node(String data) {
+    Node(T data) {
         this.data = data;
         this.next = null;
     }
 
-    String getData() {
+    public T getData() {
         return this.data;
     }
 
