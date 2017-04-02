@@ -58,11 +58,12 @@ public class Main {
 
     private static void secondBookTest() {
         // Declare and allocate an array of Authors
-        Author[] authors = new Author[2];
+        Author[] authors = new Author[3];
         authors[0] = new Author("Tan Ah Teck", "AhTeck@somewhere.com", Gender.MALE);
         authors[1] = new Author("Paul Tan", "Paul@nowhere.com", Gender.MALE);
+        authors[2] = new Author("Klaus Lungwitz", "lungwitz.klaus@gmail.com", Gender.MALE);
 
-// Declare and allocate a Book instance
+        // Declare and allocate a Book instance
         Book javaDummy = new Book("Java for Dummy", authors, 19.99, 99);
         System.out.println(javaDummy);  // toString()
     }
