@@ -9,18 +9,37 @@ public class Main {
         //linkedListTest();
         //authorTest();
         //firstBookTest();
-        secondBookTest();
+        //secondBookTest();
+        //customerTest();
+        accountTest();
+    }
+
+    private static void accountTest() {
+        Customer customer1 = new Customer(1, "Klaus Lungwitz", 20);
+        Account account = new Account(1, customer1, 200);
+        System.out.println(account);
+        try {
+            account.withdraw(100);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(account);
+    }
+
+    private static void customerTest() {
+        Customer customer = new Customer(1, "Klaus Lungwitz", 20);
+        System.out.println(customer);
     }
 
     private static void linkedListTest() {
         LinkedList list = new LinkedList<Integer>();
         list.push(1);
         list.push(2);
-        Test.print("Probando que el primero sea correcto", (Integer)list.getFirst() == 2);
-        Test.print("Probando que el último sea correcto" , (Integer)list.getLast() == 1);
-        Test.print("Probando que borrar el primero sea correcto", (Integer)list.pop() == 2);
+        Test.print("Probando que el primero sea correcto", (Integer) list.getFirst() == 2);
+        Test.print("Probando que el último sea correcto", (Integer) list.getLast() == 1);
+        Test.print("Probando que borrar el primero sea correcto", (Integer) list.pop() == 2);
         list.pushLast(55);
-        Test.print("Probando insertar último", (Integer)list.getLast() == 55);
+        Test.print("Probando insertar último", (Integer) list.getLast() == 55);
     }
 
     private static void authorTest() {
